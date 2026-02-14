@@ -1,0 +1,5 @@
+# Runtime dependencies for Raspberry Pi OS deployment
+# Keep this file minimal and production-focused.
+gpiozero>=2.0,<3.0
+python-osc>=1.8,<2.0
+rpi-ws281x>=5.0,<6.0

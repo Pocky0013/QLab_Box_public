@@ -1,0 +1,22 @@
+[Unit]
+Description=QLab Box daemon (OSC + GPIO)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# WS2812/rpi_ws281x needs low-level memory access (/dev/mem) on Raspberry Pi.
+User=root
+Group=root
+WorkingDirectory=__REPO_DIR__
+
+Environment=GPIOZERO_PIN_FACTORY=lgpio
+ExecStart=__VENV_PY__ __REPO_DIR__/launch.py daemon
+
+Restart=always
+RestartSec=1
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
